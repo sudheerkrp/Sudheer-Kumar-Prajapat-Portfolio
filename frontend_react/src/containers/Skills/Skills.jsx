@@ -52,7 +52,7 @@ const Skills = () => {
           {experiences.map((experience)=>(
             <motion.div
               className='app__skills-exp-item'
-              key={experiences.year}
+              key={experience.year}
             >
               <div className="app__skills-exp-year">
                 <p className="bold-text">{experience.year}</p>
@@ -62,14 +62,13 @@ const Skills = () => {
               >
                 {experience.works.map((work)=>{
                   return (
-                    <>
+                    <div key = {work.name}>
                       <motion.div
                         whileInView={{opacity : [0, 1]}}
                         transition= {{duration : 0.5}}
                         className='app__skills-exp-work'
                         data-tip 
                         data-for={work.name}
-                        key = {work.name}
                       >
                         <h4 className="bold-text">{work.name}</h4>
                         <p className="p-text">{work.company}</p>
@@ -82,7 +81,7 @@ const Skills = () => {
                       >
                         {work.desc}
                       </ReactTooltip>
-                    </>
+                    </div>
                   );
                 })}
               </motion.div>
